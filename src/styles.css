@@ -63,10 +63,14 @@
   background: #fff;
  }
 
-.modal h1 {
+.modal > h1 {
   text-align: center;
 } 
 
 .modal .modal-content {
   padding: 1rem;
+}
+
+.error {
+  color: red;
 }
