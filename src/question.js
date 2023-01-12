@@ -1,14 +1,17 @@
 export class Question {
   static create(question) {
-  return fetch('https://my-app-33d36-default-rtdb.firebaseio.com/questions.json', {
-      method: 'POST',
-      body: JSON.stringify(question),
-      headers: {
-          'Content-Type': 'application/json'
+    return fetch(
+      'https://my-app-33d36-default-rtdb.firebaseio.com/questions.json',
+      {
+        method: 'POST',
+        body: JSON.stringify(question),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }
-    })
-      .then(response => response.json())
-      .then(response => {
+    )
+      .then((response) => response.json())
+      .then((response) => {
         question.id = response.name;
         return question;
       })
@@ -17,40 +20,42 @@ export class Question {
   }
 
   static fetch(token) {
-    if(!token) {
-      return Promise.resolve('<p class="error">У вас немає токена</p>')
+    if (!token) {
+      return Promise.resolve('<p class="error">У вас немає токена</p>');
     }
-    return fetch(`https://my-app-33d36-default-rtdb.firebaseio.com/questions.json?auth=${token}`)
-    .then( response => response.json())
-    .then ( response => {
-      if (response && response.error) {
-        return `<p class="error">${response.error}</p>`
-      }
+    return fetch(
+      `https://my-app-33d36-default-rtdb.firebaseio.com/questions.json?auth=${token}`
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        if (response && response.error) {
+          return `<p class="error">${response.error}</p>`;
+        }
 
-      return response 
-      ? Object.keys(response).map(key => ({
-        ...response[key],
-        id: key
-      })) 
-      : [];
-    });
+        return response ?
+          Object.keys(response).map((key) => ({
+            ...response[key],
+            id: key,
+          })) :
+          [];
+      });
   }
 
   static renderList() {
     const questions = getQuestionsFromLocalStorage();
 
-    const html = questions.length 
-    ? questions.map(toCard).join('')
-    : `<div class="mui--text-headline">Запитань ще не було</div>`;
+    const html = questions.length ?
+      questions.map(toCard).join('') :
+      '<div class="mui--text-headline">Запитань ще не було</div>';
 
     const list = document.getElementById('list');
     list.innerHTML = html;
   }
 
   static listToHTML(questions) {
-    return questions.length
-      ? `<ol>${questions.map(q => `<li>${q.text}</li>`).join('')}</ol>`
-      : '<p>Питань поки немає</p>';
+    return questions.length ?
+      `<ol>${questions.map((q) => `<li>${q.text}</li>`).join('')}</ol>` :
+      '<p>Питань поки немає</p>';
   }
 }
 
