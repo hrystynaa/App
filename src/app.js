@@ -1,14 +1,16 @@
+import { createModal, isValid } from './utils';
 import { Question } from './question'; 
-import { isValid } from './utils';
 import './styles.css';
 
 
 const form = document.getElementById('form');
 const input = form.querySelector('#question-input');
 const submitBtn = form.querySelector('#submit');
+const modalBtn = form.getElementById('modal-btn');
 
 window.addEventListener('load', Question.renderList);
 form.addEventListener('submit', submitFormHandler);
+modalBtn.addEventListener('click', openModal);
 input.addEventListener('input', () => {
   submitBtn.disabled = !isValid(input.value);
 });
@@ -29,4 +31,8 @@ function submitFormHandler(event) {
       submitBtn.disabled = false;
     });
   } 
+}
+
+function openModal () {
+  createModal('Авторизація', '<h1>Test</h1>');
 }
