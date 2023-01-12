@@ -14,7 +14,8 @@
  button {
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
-   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+   color: #239393;
+   text-shadow: 1px 1px 1px rgba(9, 141, 121, 0.004);
  }
  
  
@@ -23,7 +24,7 @@
   */
  
  #sidebar {
-   background-color: #E57373;
+   background-color: #00b3b3;
    padding: 15px;
  }
  
