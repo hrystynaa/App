@@ -1,7 +1,7 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "description": "some dynamic site",
+  "description": "App",
   "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hrystynaa/Site.git"
+    "url": "git+https://github.com/hrystynaa/App.git"
   },
   "keywords": [
     "js"
@@ -17,12 +17,14 @@
   "author": "Khrystyna Yaskulska",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hrystynaa/Site/issues"
+    "url": "https://github.com/hrystynaa/App/issues"
   },
-  "homepage": "https://github.com/hrystynaa/Site#readme",
+  "homepage": "https://github.com/hrystynaa/App#readme",
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
